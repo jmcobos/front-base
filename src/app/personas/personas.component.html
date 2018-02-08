@@ -1,0 +1,19 @@
+<p>{{persona.id}}</p>
+<p>{{persona.nombre}}</p>
+<p>{{persona.nombre | uppercase}}</p>
+
+<div>
+  <label>Nombre:
+    <input [(ngModel)]="persona.nombre" placeholder="Nombre">
+  </label>
+</div>
+
+<div>
+  <h3>Personas:</h3>
+  <ul>
+    <li *ngFor="let per of personas" [class.selected]="per === selectedPersona" (click)="onSelect(per)">
+      <span>{{per.id}}</span> - {{per.nombre}}
+    </li>
+  </ul>
+  <p>La persona seleccionada es: <span *ngIf="selectedPersona">{{selectedPersona.nombre}}</span></p>
+</div>
